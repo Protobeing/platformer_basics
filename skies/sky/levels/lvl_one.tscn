@@ -1,0 +1,721 @@
+[gd_scene format=3 uid="uid://ddj567jfa8pyy"]
+
+[ext_resource type="PackedScene" uid="uid://b0arrpa7hok2k" path="res://Jed/jed.tscn" id="1_g33vu"]
+[ext_resource type="Texture2D" uid="uid://efhd2rrv1bu" path="res://earth/dune.png" id="2_7d0xs"]
+[ext_resource type="Script" uid="uid://ddxrysbgdp620" path="res://trees/ancient_oak/ancient_oak.gd" id="2_gy6l5"]
+[ext_resource type="Shader" uid="uid://cmgtkew15atbe" path="res://trees/ancient_oak/ancient_oak_BG.gdshader" id="3_7d0xs"]
+[ext_resource type="Texture2D" uid="uid://be3bqxrcv4byt" path="res://trees/ancient_oak/ancient_oak_BG.png" id="4_bhr1e"]
+[ext_resource type="Shader" uid="uid://7ddg41fv18yn" path="res://trees/ancient_oak/ancient_oak_detail_two.gdshader" id="5_ytk54"]
+[ext_resource type="Texture2D" uid="uid://bgfdrrbwi722d" path="res://trees/ancient_oak/ancient_oak_ver_5_detail_two.png" id="6_0lq4p"]
+[ext_resource type="Shader" uid="uid://m5arurjalsv3" path="res://trees/ancient_oak/ancient_oak_detail_one.gdshader" id="7_ehr85"]
+[ext_resource type="Texture2D" uid="uid://bj48hyao25f1s" path="res://trees/ancient_oak/ancient_oak_ver_5_details.png" id="8_gdf3q"]
+[ext_resource type="Texture2D" uid="uid://ce0d23fi6vatw" path="res://trees/ancient_oak/trunk_ver_2.png" id="9_6yaxt"]
+[ext_resource type="Texture2D" uid="uid://deihqrhqhnxfc" path="res://trees/ancient_oak/ancient_oak_ver_5-Sheet.png" id="10_ob08c"]
+[ext_resource type="Texture2D" uid="uid://b6jstu3t0gwhd" path="res://trees/ancient_oak/falling_leaf7.png" id="11_mytc3"]
+[ext_resource type="Shader" uid="uid://b81r5vg1pq2" path="res://trees/ancient_oak/ancient_oak.gdshader" id="12_eme65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwui2"]
+resource_local_to_scene = true
+size = Vector2(1153.3428, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwlhv"]
+size = Vector2(632, 44.000015)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpswo"]
+shader = ExtResource("3_7d0xs")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryr75"]
+shader = ExtResource("5_ytk54")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evvx0"]
+shader = ExtResource("7_ehr85")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.05
+shader_parameter/strengthScale = 25.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
+
+[sub_resource type="Animation" id="Animation_e06og"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ob08c")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ffc1g"]
+resource_name = "slight_wind"
+length = 15.0
+loop_mode = 1
+step = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ob08c")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2, 0, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xnv8e"]
+_data = {
+&"RESET": SubResource("Animation_e06og"),
+&"slight_wind": SubResource("Animation_ffc1g")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ncdt0"]
+radius = 30.0
+height = 98.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tus50"]
+shader = ExtResource("12_eme65")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.15
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.272
+shader_parameter/heightOffset = 0.712
+shader_parameter/offset = 0.0
+
+[sub_resource type="Animation" id="Animation_1uigj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AncientOakBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AncientOakVer5DetailTwo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AncientOakVer5Details:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Trunk:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_350al"]
+resource_name = "zoomed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AncientOakBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1), Color(1, 1, 1, 0.427)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AncientOakVer5DetailTwo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1), Color(1, 1, 1, 0.427)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AncientOakVer5Details:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1), Color(1, 1, 1, 0.427)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Trunk:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.427)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.627451, 0.647059, 1, 1), Color(1, 1, 1, 0.427)]
+}
+
+[sub_resource type="Animation" id="Animation_oxf21"]
+resource_name = "zoomed_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AncientOakBg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.427), Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AncientOakVer5DetailTwo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.427), Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AncientOakVer5Details:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.427), Color(0.627451, 0.647059, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Trunk:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.427), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.427), Color(0.627451, 0.647059, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3jeui"]
+_data = {
+&"RESET": SubResource("Animation_1uigj"),
+&"zoomed": SubResource("Animation_350al"),
+&"zoomed_out": SubResource("Animation_oxf21")
+}
+
+[node name="lvl_one" type="Node2D" unique_id=1361239995]
+
+[node name="Jed" parent="." unique_id=49159507 instance=ExtResource("1_g33vu")]
+position = Vector2(302, 574)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=90640228]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=485413912]
+position = Vector2(596, 637)
+polygon = PackedVector2Array(-31, -12, 35, -12, 63, -18, 112, -32, 223, -59, 320, -85, 359, -77, 413, -76, 480, -83, 514, -87, 517, 12, -538, 6, -567, 3, -560, -61, -514, -67, -432, -66, -357, -70, -279, -47, -113, -11)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2012199298]
+position = Vector2(575, 29)
+shape = SubResource("RectangleShape2D_iwui2")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=383487217]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1948345571]
+position = Vector2(15.999999, 318)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_uwlhv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=401917364]
+position = Vector2(1130, 318)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_uwlhv")
+
+[node name="Dune" type="Sprite2D" parent="StaticBody2D" unique_id=1477201671]
+z_index = -1
+position = Vector2(940, 637)
+texture = ExtResource("2_7d0xs")
+
+[node name="Dune2" type="Sprite2D" parent="StaticBody2D" unique_id=760082207]
+z_index = -1
+position = Vector2(296, 647)
+texture = ExtResource("2_7d0xs")
+flip_h = true
+
+[node name="ancient_oak" type="Node2D" parent="." unique_id=775375404]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1021, 494)
+script = ExtResource("2_gy6l5")
+
+[node name="AncientOakBg" type="Sprite2D" parent="ancient_oak" unique_id=1478045902]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_wpswo")
+position = Vector2(0, -25)
+texture = ExtResource("4_bhr1e")
+offset = Vector2(83, -261)
+
+[node name="AncientOakVer5DetailTwo" type="Sprite2D" parent="ancient_oak" unique_id=667222052]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+z_index = 1
+material = SubResource("ShaderMaterial_ryr75")
+position = Vector2(54, -253)
+texture = ExtResource("6_0lq4p")
+
+[node name="AncientOakVer5Details" type="Sprite2D" parent="ancient_oak" unique_id=1224630085]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_evvx0")
+position = Vector2(81, -275)
+texture = ExtResource("8_gdf3q")
+
+[node name="Trunk" type="Sprite2D" parent="ancient_oak" unique_id=1594965826]
+light_mask = 8
+visibility_layer = 8
+z_index = -1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, 13)
+texture = ExtResource("9_6yaxt")
+offset = Vector2(85, -290)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ancient_oak" unique_id=1442255259]
+libraries/ = SubResource("AnimationLibrary_xnv8e")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="ancient_oak" unique_id=2099951574]
+z_index = -4
+y_sort_enabled = true
+position = Vector2(6.00001, -231.5)
+scale = Vector2(32.6, 29.95)
+
+[node name="trunk" type="StaticBody2D" parent="ancient_oak" unique_id=685779153]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ancient_oak/trunk" unique_id=1913506403]
+z_index = 1
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_ncdt0")
+
+[node name="falling_leaves_1" type="CPUParticles2D" parent="ancient_oak" unique_id=1746392365]
+z_index = 1
+position = Vector2(188, -78)
+amount = 6
+texture = ExtResource("11_mytc3")
+lifetime = 3.0
+emission_shape = 1
+emission_sphere_radius = 104.94
+spread = 67.91
+gravity = Vector2(-25, 70)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_2" type="CPUParticles2D" parent="ancient_oak" unique_id=856436681]
+z_index = 1
+position = Vector2(127, -316)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 8.0
+randomness = 0.73
+emission_shape = 1
+emission_sphere_radius = 82.25
+spread = 67.91
+gravity = Vector2(-50, 50)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_3" type="CPUParticles2D" parent="ancient_oak" unique_id=311507275]
+z_index = 1
+position = Vector2(-66, -397)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 10.0
+explosiveness = 0.84
+randomness = 0.88
+emission_shape = 1
+emission_sphere_radius = 93.89
+spread = 67.91
+gravity = Vector2(-20, 75)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_4" type="CPUParticles2D" parent="ancient_oak" unique_id=108955994]
+z_index = 1
+position = Vector2(-135, -88)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(50, 200)
+spread = 67.91
+gravity = Vector2(-50, 40)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ancient_oak" unique_id=195350482]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_tus50")
+position = Vector2(-1, 13)
+texture = ExtResource("10_ob08c")
+offset = Vector2(86, -290)
+
+[node name="zoom_anims" type="AnimationPlayer" parent="ancient_oak" unique_id=1289092635]
+libraries/ = SubResource("AnimationLibrary_3jeui")
+
+[node name="ancient_oak2" type="Node2D" parent="." unique_id=764339763]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(153, 513)
+script = ExtResource("2_gy6l5")
+
+[node name="AncientOakBg" type="Sprite2D" parent="ancient_oak2" unique_id=1671746047]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_wpswo")
+position = Vector2(0, -25)
+texture = ExtResource("4_bhr1e")
+offset = Vector2(83, -261)
+
+[node name="AncientOakVer5DetailTwo" type="Sprite2D" parent="ancient_oak2" unique_id=63433752]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+z_index = 1
+material = SubResource("ShaderMaterial_ryr75")
+position = Vector2(54, -253)
+texture = ExtResource("6_0lq4p")
+
+[node name="AncientOakVer5Details" type="Sprite2D" parent="ancient_oak2" unique_id=1809907123]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_evvx0")
+position = Vector2(81, -275)
+texture = ExtResource("8_gdf3q")
+
+[node name="Trunk" type="Sprite2D" parent="ancient_oak2" unique_id=762988415]
+light_mask = 8
+visibility_layer = 8
+z_index = -1
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, 13)
+texture = ExtResource("9_6yaxt")
+offset = Vector2(85, -290)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ancient_oak2" unique_id=1034292963]
+libraries/ = SubResource("AnimationLibrary_xnv8e")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="ancient_oak2" unique_id=798253904]
+z_index = -4
+y_sort_enabled = true
+position = Vector2(6.00001, -231.5)
+scale = Vector2(32.6, 29.95)
+
+[node name="trunk" type="StaticBody2D" parent="ancient_oak2" unique_id=2080011328]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ancient_oak2/trunk" unique_id=1835316044]
+z_index = 1
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_ncdt0")
+
+[node name="falling_leaves_1" type="CPUParticles2D" parent="ancient_oak2" unique_id=795314039]
+z_index = 1
+position = Vector2(188, -78)
+amount = 6
+texture = ExtResource("11_mytc3")
+lifetime = 3.0
+emission_shape = 1
+emission_sphere_radius = 104.94
+spread = 67.91
+gravity = Vector2(-25, 70)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_2" type="CPUParticles2D" parent="ancient_oak2" unique_id=834399540]
+z_index = 1
+position = Vector2(127, -316)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 8.0
+randomness = 0.73
+emission_shape = 1
+emission_sphere_radius = 82.25
+spread = 67.91
+gravity = Vector2(-50, 50)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_3" type="CPUParticles2D" parent="ancient_oak2" unique_id=128796759]
+z_index = 1
+position = Vector2(-66, -397)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 10.0
+explosiveness = 0.84
+randomness = 0.88
+emission_shape = 1
+emission_sphere_radius = 93.89
+spread = 67.91
+gravity = Vector2(-20, 75)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="falling_leaves_4" type="CPUParticles2D" parent="ancient_oak2" unique_id=954124117]
+z_index = 1
+position = Vector2(-135, -88)
+amount = 4
+texture = ExtResource("11_mytc3")
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(50, 200)
+spread = 67.91
+gravity = Vector2(-50, 40)
+linear_accel_min = -5.45
+damping_min = 37.803
+damping_max = 67.055
+angle_min = -180.0
+angle_max = 360.0
+
+[node name="Sprite2D" type="Sprite2D" parent="ancient_oak2" unique_id=223527958]
+modulate = Color(0.627451, 0.647059, 1, 1)
+light_mask = 8
+visibility_layer = 8
+material = SubResource("ShaderMaterial_tus50")
+position = Vector2(-1, 13)
+texture = ExtResource("10_ob08c")
+offset = Vector2(86, -290)
+
+[node name="zoom_anims" type="AnimationPlayer" parent="ancient_oak2" unique_id=1435868560]
+libraries/ = SubResource("AnimationLibrary_3jeui")

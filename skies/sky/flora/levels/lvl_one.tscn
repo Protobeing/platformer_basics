@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddj567jfa8pyy"]
+
+[ext_resource type="PackedScene" uid="uid://b0arrpa7hok2k" path="res://Jed/jed.tscn" id="1_g33vu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwui2"]
+size = Vector2(1165, 57)
+
+[node name="lvl_one" type="Node2D" unique_id=1361239995]
+
+[node name="Jed" parent="." unique_id=49159507 instance=ExtResource("1_g33vu")]
+position = Vector2(267, 577)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=90640228]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=91999056]
+position = Vector2(577, 613)
+shape = SubResource("RectangleShape2D_iwui2")

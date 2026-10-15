@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b0arrpa7hok2k"]
+
+[ext_resource type="Script" uid="uid://fl1pxwgy718j" path="res://Jed/jed.gd" id="1_ns10y"]
+[ext_resource type="Texture2D" uid="uid://brb4qeb3iiavs" path="res://Jed/ready_r.png" id="2_0r4w6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d0otc"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_5ad15"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_it3yx"]
+resource_name = "ready_face_right"
+length = 0.39999999999999997
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqnsp"]
+_data = {
+&"RESET": SubResource("Animation_5ad15"),
+&"ready_face_right": SubResource("Animation_it3yx")
+}
+
+[node name="Jed" type="CharacterBody2D" unique_id=49159507]
+script = ExtResource("1_ns10y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=110410866]
+zoom = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1050197127]
+texture = ExtResource("2_0r4w6")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=6530140]
+position = Vector2(-1, -5)
+shape = SubResource("CapsuleShape2D_d0otc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1977639019]
+libraries/ = SubResource("AnimationLibrary_iqnsp")
